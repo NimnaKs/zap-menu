@@ -25,6 +25,52 @@ const highlights = [
   },
 ];
 
+const featureCards = [
+  {
+    icon: "simple-icons/whatsapp",
+    title: "WhatsApp Ordering",
+    text: "Let customers browse your menu, place orders, and chat with you directly on WhatsApp.",
+    accent: "bg-[#e9f9ef]",
+    iconColor: "text-[#25d366]",
+  },
+  {
+    icon: "lucide/qr-code",
+    title: "QR Menu",
+    text: "Create a QR code for your menu so customers can scan, browse, and order instantly.",
+    accent: "bg-[#fff1e8]",
+    iconColor: "text-[#ff5a1f]",
+  },
+  {
+    icon: "lucide/pencil-line",
+    title: "Real-time Menu Updates",
+    text: "Update menu items, prices, and availability in real-time. Changes reflect instantly.",
+    accent: "bg-[#eaf1ff]",
+    iconColor: "text-[#3b82f6]",
+  },
+  {
+    icon: "lucide/credit-card",
+    title: "Online Payments",
+    text: "Accept secure online payments through multiple payment gateways with ease.",
+    accent: "bg-[#f2e9ff]",
+    iconColor: "text-[#8b5cf6]",
+  },
+  {
+    icon: "lucide/bar-chart-3",
+    title: "Analytics Dashboard",
+    text: "Track orders, revenue, popular items, and customer insights from one dashboard.",
+    accent: "bg-[#fff7df]",
+    iconColor: "text-[#f59e0b]",
+  },
+  {
+    icon: "lucide/store",
+    title: "Multi-Branch Support",
+    text: "Manage multiple branches, menus, and orders from a single zapMenu account.",
+    accent: "bg-[#ffe8ea]",
+    iconColor: "text-[#ef4444]",
+    badge: "Coming soon",
+  },
+] as const;
+
 function WebIcon({
   name,
   className,
@@ -86,7 +132,7 @@ export default function Home() {
         </div>
       </header>
 
-      <section className="relative overflow-hidden border-b border-black/5 bg-[linear-gradient(125deg,#fffaf5_0%,#fff6ef_34%,#f7fbf5_62%,#eef7ff_100%)]">
+      <section className="relative overflow-hidden bg-[linear-gradient(125deg,#fffaf5_0%,#fff6ef_34%,#f7fbf5_62%,#eef7ff_100%)]">
         <div
           aria-hidden="true"
           className="absolute inset-0 opacity-45 [background-image:linear-gradient(rgba(21,21,21,0.035)_1px,transparent_1px),linear-gradient(90deg,rgba(21,21,21,0.035)_1px,transparent_1px)] [background-size:40px_40px] sm:[background-size:48px_48px]"
@@ -159,10 +205,54 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="mx-auto flex max-w-[1280px] flex-wrap items-center justify-center gap-3 px-4 py-5 text-center text-sm text-zinc-600 sm:px-8 lg:justify-start lg:px-10">
-        <span className="font-semibold text-zinc-900">Built for fast setup</span>
-        <span className="h-1 w-1 rounded-full bg-zinc-300" />
-        <span>Menus, order flow, and updates stay simple for daily use.</span>
+      <section className="relative overflow-hidden border-b border-black/5 bg-[linear-gradient(125deg,#fffaf5_0%,#fff6ef_34%,#f7fbf5_62%,#eef7ff_100%)] py-20 sm:py-24">
+        <div
+          aria-hidden="true"
+          className="absolute inset-0 opacity-45 [background-image:linear-gradient(rgba(21,21,21,0.035)_1px,transparent_1px),linear-gradient(90deg,rgba(21,21,21,0.035)_1px,transparent_1px)] [background-size:40px_40px] sm:[background-size:48px_48px]"
+        />
+
+        <div className="relative mx-auto max-w-[1280px] px-4 sm:px-8 lg:px-10">
+          <div className="mx-auto max-w-4xl text-center">
+            <div className="inline-flex items-center gap-2 rounded-full border border-[#ff5a1f]/15 bg-white px-4 py-2 text-sm font-bold uppercase tracking-[0.18em] text-[#ff5a1f] shadow-sm">
+              <WebIcon name="lucide/zap" className="h-4 w-4" />
+              Powerful Features
+            </div>
+            <h2 className="mx-auto mt-6 max-w-4xl text-4xl font-bold tracking-tight text-[#111111] sm:text-5xl lg:text-6xl">
+              Everything You Need to
+              <br className="hidden sm:block" />
+              Run Your Restaurant <span className="text-[#ff5a1f]">Smarter</span>
+            </h2>
+            <p className="mx-auto mt-5 max-w-3xl text-lg leading-8 text-[#4b5563]">
+              zapMenu gives you all the tools to manage your menu, orders, and customers in one
+              simple platform.
+            </p>
+          </div>
+
+          <div className="mt-12 grid gap-5 md:grid-cols-2 xl:grid-cols-3">
+            {featureCards.map((feature) => (
+              <article
+                key={feature.title}
+                className="group relative overflow-hidden rounded-[1.75rem] border border-black/5 bg-white/95 p-7 shadow-[0_18px_45px_rgba(17,17,17,0.07)] transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_24px_55px_rgba(17,17,17,0.12)]"
+              >
+                <div className="pointer-events-none absolute right-6 top-6 h-5 w-5 rounded-full bg-[#d9f8e4] opacity-90 transition-transform duration-300 group-hover:scale-125" />
+                <div
+                  className={`grid h-24 w-24 place-items-center rounded-[1.5rem] ${feature.accent} text-4xl shadow-[0_16px_28px_rgba(17,17,17,0.06)]`}
+                >
+                  <WebIcon name={feature.icon} className={`h-11 w-11 ${feature.iconColor}`} />
+                </div>
+                <h3 className="mt-6 text-2xl font-bold tracking-tight text-[#111111]">
+                  {feature.title}
+                </h3>
+                <p className="mt-3 max-w-sm text-base leading-7 text-[#4b5563]">{feature.text}</p>
+                {"badge" in feature ? (
+                  <span className="mt-6 inline-flex rounded-full bg-[#fff1e8] px-3 py-1.5 text-sm font-semibold text-[#ff5a1f]">
+                    {feature.badge}
+                  </span>
+                ) : null}
+              </article>
+            ))}
+          </div>
+        </div>
       </section>
     </main>
   );
