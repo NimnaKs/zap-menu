@@ -100,12 +100,13 @@ export default function Home() {
             </div>
 
             <h1 className="mx-auto mt-5 max-w-[12ch] text-[2.65rem] font-bold leading-none text-[#141414] sm:mt-6 sm:text-6xl lg:mx-0 lg:text-7xl">
-              Launch your menu online in minutes
+              Launch your menu <span className="text-[#ff5a1f]">Online</span> in minutes
             </h1>
 
             <p className="mx-auto mt-5 max-w-[36rem] text-base leading-7 text-[#594b43] sm:mt-6 sm:text-lg sm:leading-8 lg:mx-0">
-              Create a colorful, mobile-friendly restaurant menu that customers
-              can browse, order from, and send straight to WhatsApp.
+              Create a beautiful, mobile-friendly digital menu for your
+              restaurant. Let customers browse and order through WhatsApp
+              without complicated setup.
             </p>
 
             <div className="mt-7 flex flex-col items-stretch gap-3 min-[480px]:flex-row min-[480px]:justify-center sm:mt-8 lg:justify-start">
