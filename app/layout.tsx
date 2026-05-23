@@ -14,8 +14,9 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   applicationName: "ZapMenu",
-  title: "ZapMenu",
-  description: "ZapMenu",
+  title: "ZapMenu | WhatsApp-powered digital menus",
+  description:
+    "Launch a beautiful restaurant menu online in minutes and let customers order through WhatsApp.",
   icons: {
     icon: "/zap-menu.png",
     apple: "/zap-menu.png",
