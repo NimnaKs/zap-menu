@@ -84,7 +84,7 @@ const howItWorksSteps = [
     step: "STEP 2",
     title: "Add Menu Items & Prices",
     text: "Add menu items, descriptions, images, and prices easily.",
-    icon: "lucide/burger",
+    icon: "lucide/clipboard-list",
   },
   {
     step: "STEP 3",
@@ -286,11 +286,11 @@ export default function Home() {
         <div className="relative mx-auto max-w-[1280px] px-4 sm:px-8 lg:px-10">
           <div className="mx-auto max-w-4xl text-center">
             <div className="inline-flex items-center gap-2 rounded-full border border-[#ff5a1f]/15 bg-white px-4 py-2 text-sm font-bold uppercase tracking-[0.18em] text-[#ff5a1f] shadow-sm">
-              <WebIcon name="lucide/zap" className="h-4 w-4" />
+              <WebIcon name="lucide/settings" className="h-4 w-4" />
               How It Works
             </div>
             <h2 className="mx-auto mt-6 max-w-4xl text-4xl font-bold tracking-tight text-[#111111] sm:text-5xl lg:text-6xl">
-              Get Started in 3 Simple Steps
+              Get Started in 3 <span className="text-[#ff5a1f]">Simple</span> Steps
             </h2>
             <p className="mx-auto mt-5 max-w-3xl text-lg leading-8 text-[#4b5563]">
               From setup to serving orders - zapMenu makes it easy for restaurants to launch a
