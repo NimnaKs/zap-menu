@@ -94,6 +94,110 @@ const howItWorksSteps = [
   },
 ] as const;
 
+const benefits = [
+  {
+    number: "01",
+    title: "Increase Orders & Revenue",
+    text: "Make it easier for customers to discover your menu, place orders, and come back for more.",
+    image: "/benefits/benefits_01.png",
+    imageAlt: "Restaurant owner checking an orders overview dashboard",
+  },
+  {
+    number: "02",
+    title: "Reduce Waiter Workload",
+    text: "Automate ordering and reduce manual tasks, so your staff can focus on what matters most.",
+    image: "/benefits/benefits_02.png",
+    imageAlt: "Server handling a restaurant order at the table",
+  },
+  {
+    number: "03",
+    title: "Easy Menu Updates",
+    text: "Update items, prices, and availability in real-time. Changes instantly reflect for your customers.",
+    image: "/benefits/benefits_03.png",
+    imageAlt: "Laptop showing menu items being updated",
+  },
+  {
+    number: "04",
+    title: "Better Customer Experience",
+    text: "Fast, convenient, and hassle-free ordering creates happy customers and loyal fans.",
+    image: "/benefits/benefits_04.png",
+    imageAlt: "Mobile menu review card showing a positive customer experience",
+  },
+  {
+    number: "05",
+    title: "No App Download Needed",
+    text: "Customers can access your menu instantly through the browser - no apps, no fuss.",
+    image: "/benefits/benefits_05.png",
+    imageAlt: "QR code stand and restaurant burger on a table",
+  },
+] as const;
+
+const pricingPlans = [
+  {
+    name: "Starter",
+    price: "Free",
+    description: "For small restaurants getting started with digital menus.",
+    features: ["Digital menu", "WhatsApp ordering", "Basic branding"],
+  },
+  {
+    name: "Pro",
+    price: "$9/month",
+    description: "Best for growing restaurants that want more visibility.",
+    features: ["Everything in Starter", "QR code menu", "Menu updates anytime"],
+    featured: true,
+  },
+  {
+    name: "Business",
+    price: "$29/month",
+    description: "For teams that need advanced control and support.",
+    features: ["Everything in Pro", "Advanced branding", "Priority support"],
+  },
+] as const;
+
+const testimonials = [
+  {
+    name: "Burgur Cafe",
+    quote: "zapMenu helped us increase online orders by 40%.",
+    role: "Restaurant Owner",
+    avatar: "BC",
+  },
+  {
+    name: "Spice Route",
+    quote: "Our staff spends less time taking orders and more time serving guests.",
+    role: "Owner",
+    avatar: "SR",
+  },
+  {
+    name: "The Mango Table",
+    quote: "Updating the menu takes minutes, and customers love the WhatsApp flow.",
+    role: "Manager",
+    avatar: "MT",
+  },
+] as const;
+
+const faqs = [
+  {
+    question: "Do customers need an app?",
+    answer: "No. Customers can open the menu in their browser and order instantly.",
+  },
+  {
+    question: "How does WhatsApp ordering work?",
+    answer: "Customers browse the menu, choose items, and send the order through WhatsApp.",
+  },
+  {
+    question: "Can I update menu anytime?",
+    answer: "Yes. You can update items, prices, and availability whenever you need.",
+  },
+  {
+    question: "Is payment supported?",
+    answer: "Yes. You can connect payment options depending on your setup and plan.",
+  },
+  {
+    question: "Can I use my own branding?",
+    answer: "Yes. You can customize the menu to match your restaurant brand.",
+  },
+] as const;
+
 function WebIcon({
   name,
   className,
@@ -367,6 +471,250 @@ export default function Home() {
                 </div>
               </div>
             </div>
+          </div>
+        </div>
+      </section>
+
+      <section className="relative overflow-hidden border-b border-black/5 bg-[linear-gradient(125deg,#fffaf5_0%,#fff6ef_34%,#f7fbf5_62%,#eef7ff_100%)] py-20 sm:py-24">
+        <div
+          aria-hidden="true"
+          className="absolute inset-0 opacity-45 [background-image:linear-gradient(rgba(21,21,21,0.035)_1px,transparent_1px),linear-gradient(90deg,rgba(21,21,21,0.035)_1px,transparent_1px)] [background-size:40px_40px] sm:[background-size:48px_48px]"
+        />
+
+        <div className="relative mx-auto max-w-[1280px] px-4 sm:px-8 lg:px-10">
+          <div className="mx-auto max-w-4xl text-center">
+            <div className="inline-flex items-center gap-2 rounded-full border border-[#ff5a1f]/15 bg-white px-4 py-2 text-sm font-bold uppercase tracking-[0.18em] text-[#ff5a1f] shadow-sm">
+              <WebIcon name="lucide/star" className="h-4 w-4" />
+              Benefits
+            </div>
+            <h2 className="mx-auto mt-6 max-w-4xl text-4xl font-bold tracking-tight text-[#111111] sm:text-5xl lg:text-6xl">
+              Built to Help Your <span className="text-[#ff5a1f]">Restaurant Grow</span>
+            </h2>
+            <p className="mx-auto mt-5 max-w-3xl text-lg leading-8 text-[#4b5563] sm:text-xl">
+              zapMenu helps you streamline operations, delight customers, and grow your business
+              every day.
+            </p>
+          </div>
+
+          <div className="mt-14 space-y-10 sm:space-y-12">
+            {benefits.map((benefit, index) => {
+              const isReversed = index % 2 === 1;
+
+              return (
+                <article
+                  key={benefit.title}
+                  className="relative grid items-center gap-6 lg:grid-cols-[minmax(0,1.05fr)_minmax(0,0.95fr)] lg:gap-10"
+                >
+                  <div className={`${isReversed ? "lg:order-2" : ""}`}>
+                    <div className="relative overflow-hidden rounded-[2rem] shadow-[0_24px_60px_rgba(17,17,17,0.14)]">
+                      <Image
+                        src={benefit.image}
+                        alt={benefit.imageAlt}
+                        width={1200}
+                        height={760}
+                        className="h-full w-full object-cover"
+                      />
+                    </div>
+                  </div>
+
+                  <div className={`${isReversed ? "lg:order-1" : ""}`}>
+                    <div className="flex items-center gap-5">
+                      <div className="hidden lg:flex lg:w-24 lg:justify-start">
+                        <span className="text-[5rem] font-bold leading-none text-[#ead7c8]">
+                          {benefit.number}
+                        </span>
+                      </div>
+
+                      <div className="flex-1 rounded-[1.8rem] border border-black/5 bg-white/95 p-6 shadow-[0_18px_45px_rgba(17,17,17,0.07)] sm:p-7">
+                        <div className="inline-flex h-14 w-14 items-center justify-center rounded-[1.25rem] bg-[#fff1e8] text-[#ff5a1f] shadow-sm">
+                          <WebIcon
+                            name={
+                              index === 0
+                                ? "lucide/trending-up"
+                                : index === 1
+                                  ? "lucide/users"
+                                  : index === 2
+                                    ? "lucide/pencil-line"
+                                    : index === 3
+                                      ? "lucide/smile"
+                                      : "lucide/scan-line"
+                            }
+                            className="h-7 w-7"
+                          />
+                        </div>
+                        <h3 className="mt-5 text-2xl font-bold tracking-tight text-[#111111]">
+                          {benefit.title}
+                        </h3>
+                        <p className="mt-3 max-w-xl text-base leading-7 text-[#4b5563]">
+                          {benefit.text}
+                        </p>
+                      </div>
+                    </div>
+
+                    <div className="mt-4 flex items-center gap-3 lg:justify-end">
+                      <span className="h-px flex-1 bg-[#f0ddcf] lg:max-w-[240px]" />
+                      <span className="h-3 w-3 rounded-full bg-[#ffbb87]" />
+                    </div>
+                  </div>
+                </article>
+              );
+            })}
+          </div>
+        </div>
+      </section>
+
+      <section className="relative overflow-hidden border-b border-black/5 bg-[#fffaf5] py-20 sm:py-24">
+        <div
+          aria-hidden="true"
+          className="absolute inset-0 opacity-45 [background-image:linear-gradient(rgba(21,21,21,0.035)_1px,transparent_1px),linear-gradient(90deg,rgba(21,21,21,0.035)_1px,transparent_1px)] [background-size:40px_40px] sm:[background-size:48px_48px]"
+        />
+
+        <div className="relative mx-auto max-w-[1280px] px-4 sm:px-8 lg:px-10">
+          <div className="mx-auto max-w-4xl text-center">
+            <div className="inline-flex items-center gap-2 rounded-full border border-[#ff5a1f]/15 bg-white px-4 py-2 text-sm font-bold uppercase tracking-[0.18em] text-[#ff5a1f] shadow-sm">
+              <WebIcon name="lucide/credit-card" className="h-4 w-4" />
+              Pricing
+            </div>
+            <h2 className="mx-auto mt-6 max-w-4xl text-4xl font-bold tracking-tight text-[#111111] sm:text-5xl lg:text-6xl">
+              Simple plans for every restaurant
+            </h2>
+            <p className="mx-auto mt-5 max-w-3xl text-lg leading-8 text-[#4b5563]">
+              Start free, then upgrade as your restaurant grows. The Pro plan is the most popular
+              choice.
+            </p>
+          </div>
+
+          <div className="mt-12 grid gap-5 lg:grid-cols-3">
+            {pricingPlans.map((plan) => (
+              <article
+                key={plan.name}
+                className={`relative rounded-[2rem] border p-7 shadow-[0_18px_45px_rgba(17,17,17,0.07)] ${
+                  plan.featured
+                    ? "border-[#ff5a1f]/25 bg-[linear-gradient(180deg,#ffffff_0%,#fff4ea_100%)] ring-1 ring-[#ff5a1f]/20"
+                    : "border-black/5 bg-white/95"
+                }`}
+              >
+                {plan.featured ? (
+                  <span className="absolute -top-3 left-1/2 -translate-x-1/2 rounded-full bg-[#ff5a1f] px-4 py-1 text-xs font-bold uppercase tracking-[0.16em] text-white shadow-sm">
+                    Most Popular
+                  </span>
+                ) : null}
+
+                <h3 className="text-2xl font-bold tracking-tight text-[#111111]">{plan.name}</h3>
+                <div className="mt-4 flex items-end gap-2">
+                  <span className="text-4xl font-bold text-[#ff5a1f]">{plan.price}</span>
+                </div>
+                <p className="mt-3 text-base leading-7 text-[#4b5563]">{plan.description}</p>
+
+                <ul className="mt-6 space-y-3 text-sm text-[#4b5563]">
+                  {plan.features.map((feature) => (
+                    <li key={feature} className="flex items-start gap-3">
+                      <span className="mt-0.5 grid h-5 w-5 shrink-0 place-items-center rounded-full bg-[#fff1e8] text-[#ff5a1f]">
+                        <WebIcon name="lucide/check" className="h-3.5 w-3.5" />
+                      </span>
+                      <span>{feature}</span>
+                    </li>
+                  ))}
+                </ul>
+
+                <button
+                  type="button"
+                  className={`mt-7 inline-flex h-11 w-full items-center justify-center rounded-xl px-5 text-sm font-semibold transition-colors ${
+                    plan.featured
+                      ? "bg-[#ff5a1f] text-white hover:bg-[#f04424]"
+                      : "border border-black/10 bg-white text-[#111111] hover:bg-zinc-50"
+                  }`}
+                >
+                  Choose {plan.name}
+                </button>
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="relative overflow-hidden border-b border-black/5 bg-[linear-gradient(125deg,#fffaf5_0%,#fff6ef_34%,#f7fbf5_62%,#eef7ff_100%)] py-20 sm:py-24">
+        <div
+          aria-hidden="true"
+          className="absolute inset-0 opacity-45 [background-image:linear-gradient(rgba(21,21,21,0.035)_1px,transparent_1px),linear-gradient(90deg,rgba(21,21,21,0.035)_1px,transparent_1px)] [background-size:40px_40px] sm:[background-size:48px_48px]"
+        />
+
+        <div className="relative mx-auto max-w-[1280px] px-4 sm:px-8 lg:px-10">
+          <div className="mx-auto max-w-4xl text-center">
+            <div className="inline-flex items-center gap-2 rounded-full border border-[#ff5a1f]/15 bg-white px-4 py-2 text-sm font-bold uppercase tracking-[0.18em] text-[#ff5a1f] shadow-sm">
+              <WebIcon name="lucide/message-square-quote" className="h-4 w-4" />
+              Testimonials
+            </div>
+            <h2 className="mx-auto mt-6 max-w-4xl text-4xl font-bold tracking-tight text-[#111111] sm:text-5xl lg:text-6xl">
+              Loved by restaurant owners
+            </h2>
+            <p className="mx-auto mt-5 max-w-3xl text-lg leading-8 text-[#4b5563]">
+              Real feedback from teams using zapMenu to modernize ordering and increase sales.
+            </p>
+          </div>
+
+          <div className="mt-12 grid gap-5 md:grid-cols-2 xl:grid-cols-3">
+            {testimonials.map((testimonial) => (
+              <article
+                key={testimonial.name}
+                className="rounded-[2rem] border border-black/5 bg-white/95 p-7 shadow-[0_18px_45px_rgba(17,17,17,0.07)]"
+              >
+                <div className="flex items-center gap-4">
+                  <div className="grid h-12 w-12 place-items-center rounded-full bg-[#fff1e8] text-sm font-bold text-[#ff5a1f]">
+                    {testimonial.avatar}
+                  </div>
+                  <div>
+                    <h3 className="font-bold text-[#111111]">{testimonial.name}</h3>
+                    <p className="text-sm text-[#6b7280]">{testimonial.role}</p>
+                  </div>
+                </div>
+
+                <p className="mt-5 text-base leading-7 text-[#4b5563]">
+                  “{testimonial.quote}”
+                </p>
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="relative overflow-hidden bg-[#fffaf5] py-20 sm:py-24">
+        <div
+          aria-hidden="true"
+          className="absolute inset-0 opacity-45 [background-image:linear-gradient(rgba(21,21,21,0.035)_1px,transparent_1px),linear-gradient(90deg,rgba(21,21,21,0.035)_1px,transparent_1px)] [background-size:40px_40px] sm:[background-size:48px_48px]"
+        />
+
+        <div className="relative mx-auto max-w-[900px] px-4 sm:px-8 lg:px-10">
+          <div className="mx-auto max-w-4xl text-center">
+            <div className="inline-flex items-center gap-2 rounded-full border border-[#ff5a1f]/15 bg-white px-4 py-2 text-sm font-bold uppercase tracking-[0.18em] text-[#ff5a1f] shadow-sm">
+              <WebIcon name="lucide/help-circle" className="h-4 w-4" />
+              FAQ
+            </div>
+            <h2 className="mx-auto mt-6 max-w-4xl text-4xl font-bold tracking-tight text-[#111111] sm:text-5xl lg:text-6xl">
+              Frequently asked questions
+            </h2>
+            <p className="mx-auto mt-5 max-w-3xl text-lg leading-8 text-[#4b5563]">
+              Quick answers to the most common questions about setup, ordering, and branding.
+            </p>
+          </div>
+
+          <div className="mt-12 space-y-4">
+            {faqs.map((faq, index) => (
+              <details
+                key={faq.question}
+                className="group rounded-[1.5rem] border border-black/5 bg-white/95 p-6 shadow-[0_18px_45px_rgba(17,17,17,0.07)]"
+                open={index === 0}
+              >
+                <summary className="flex cursor-pointer list-none items-center justify-between gap-4 text-left text-lg font-semibold text-[#111111]">
+                  <span>{faq.question}</span>
+                  <WebIcon
+                    name="lucide/chevron-down"
+                    className="h-5 w-5 shrink-0 text-[#ff5a1f] transition-transform duration-200 group-open:rotate-180"
+                  />
+                </summary>
+                <p className="mt-4 max-w-3xl text-base leading-7 text-[#4b5563]">{faq.answer}</p>
+              </details>
+            ))}
           </div>
         </div>
       </section>
