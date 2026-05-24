@@ -697,7 +697,7 @@ export default function Home() {
               FAQ
             </div>
             <h2 className="mx-auto mt-6 max-w-4xl text-4xl font-bold tracking-tight text-[#111111] sm:text-5xl lg:text-6xl">
-              Frequently asked questions
+              Frequently asked <span className="text-[#ff5a1f]">questions</span>
             </h2>
             <p className="mx-auto mt-5 max-w-3xl text-lg leading-8 text-[#4b5563]">
               Quick answers to the most common questions about setup, ordering, and branding.
