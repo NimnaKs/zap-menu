@@ -3,6 +3,8 @@ import Link from "next/link";
 import type { CSSProperties } from "react";
 
 const iconBase = "https://api.iconify.design";
+const youtubeEmbedUrl =
+  "https://www.youtube-nocookie.com/embed/-9uJVj3ModI?rel=0&modestbranding=1&playsinline=1&controls=1";
 
 const highlights = [
   {
@@ -68,6 +70,27 @@ const featureCards = [
     accent: "bg-[#ffe8ea]",
     iconColor: "text-[#ef4444]",
     badge: "Coming soon",
+  },
+] as const;
+
+const howItWorksSteps = [
+  {
+    step: "STEP 1",
+    title: "Create Your Restaurant",
+    text: "Sign up and set up your restaurant profile in just a few minutes.",
+    icon: "lucide/store",
+  },
+  {
+    step: "STEP 2",
+    title: "Add Menu Items & Prices",
+    text: "Add menu items, descriptions, images, and prices easily.",
+    icon: "lucide/burger",
+  },
+  {
+    step: "STEP 3",
+    title: "Share QR Code & Receive Orders",
+    text: "Customers scan your QR code, browse the menu, and order through WhatsApp instantly.",
+    icon: "lucide/qr-code",
   },
 ] as const;
 
@@ -150,9 +173,8 @@ export default function Home() {
             </h1>
 
             <p className="mx-auto mt-5 max-w-[36rem] text-base leading-7 text-[#594b43] sm:mt-6 sm:text-lg sm:leading-8 lg:mx-0">
-              Create a beautiful, mobile-friendly digital menu for your
-              restaurant. Let customers browse and order through WhatsApp
-              without complicated setup.
+              Create a beautiful, mobile-friendly digital menu for your restaurant. Let customers
+              browse and order through WhatsApp without complicated setup.
             </p>
 
             <div className="mt-7 flex flex-col items-stretch gap-3 min-[480px]:flex-row min-[480px]:justify-center sm:mt-8 lg:justify-start">
@@ -168,10 +190,7 @@ export default function Home() {
                 className="inline-flex h-12 items-center justify-center gap-2 rounded-xl border border-[#ff7a45]/25 bg-white/90 px-6 text-sm font-semibold text-[#202020] shadow-sm transition-colors hover:bg-white"
               >
                 Try Demo
-                <WebIcon
-                  name="lucide/play-circle"
-                  className="h-4 w-4 text-[#ff5a1f]"
-                />
+                <WebIcon name="lucide/play-circle" className="h-4 w-4 text-[#ff5a1f]" />
               </Link>
             </div>
 
@@ -251,6 +270,103 @@ export default function Home() {
                 ) : null}
               </article>
             ))}
+          </div>
+        </div>
+      </section>
+
+      <section
+        id="how-it-works"
+        className="relative overflow-hidden border-b border-black/5 bg-[linear-gradient(125deg,#fffaf5_0%,#fff6ef_34%,#f7fbf5_62%,#eef7ff_100%)] py-20 sm:py-24"
+      >
+        <div
+          aria-hidden="true"
+          className="absolute inset-0 opacity-45 [background-image:linear-gradient(rgba(21,21,21,0.035)_1px,transparent_1px),linear-gradient(90deg,rgba(21,21,21,0.035)_1px,transparent_1px)] [background-size:40px_40px] sm:[background-size:48px_48px]"
+        />
+
+        <div className="relative mx-auto max-w-[1280px] px-4 sm:px-8 lg:px-10">
+          <div className="mx-auto max-w-4xl text-center">
+            <div className="inline-flex items-center gap-2 rounded-full border border-[#ff5a1f]/15 bg-white px-4 py-2 text-sm font-bold uppercase tracking-[0.18em] text-[#ff5a1f] shadow-sm">
+              <WebIcon name="lucide/zap" className="h-4 w-4" />
+              How It Works
+            </div>
+            <h2 className="mx-auto mt-6 max-w-4xl text-4xl font-bold tracking-tight text-[#111111] sm:text-5xl lg:text-6xl">
+              Get Started in 3 Simple Steps
+            </h2>
+            <p className="mx-auto mt-5 max-w-3xl text-lg leading-8 text-[#4b5563]">
+              From setup to serving orders - zapMenu makes it easy for restaurants to launch a
+              digital menu in minutes.
+            </p>
+          </div>
+
+          <div className="mt-12 grid gap-10 lg:grid-cols-[0.96fr_1.04fr] lg:items-start">
+            <div className="relative">
+              <div
+                aria-hidden="true"
+                className="absolute left-[1.95rem] top-6 hidden h-[calc(100%-3rem)] border-l-2 border-dotted border-[#ff7a00]/30 sm:block"
+              />
+
+              <div className="space-y-5">
+                {howItWorksSteps.map((item, index) => (
+                  <article
+                    key={item.title}
+                    className="relative grid grid-cols-[auto_1fr] gap-5 rounded-[1.75rem] border border-black/5 bg-white/95 p-5 shadow-[0_18px_45px_rgba(17,17,17,0.07)] transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_24px_55px_rgba(17,17,17,0.12)] sm:p-6"
+                  >
+                    <div className="flex flex-col items-center">
+                      <div className="grid h-16 w-16 place-items-center rounded-[1.35rem] bg-[#fff1e8] text-[#ff5a1f] shadow-[0_16px_28px_rgba(17,17,17,0.05)]">
+                        <WebIcon name={item.icon} className="h-8 w-8" />
+                      </div>
+                      {index < howItWorksSteps.length - 1 ? (
+                        <span className="mt-4 h-16 border-l-2 border-dotted border-[#ff5a1f]/45" />
+                      ) : null}
+                    </div>
+
+                    <div className="pt-1">
+                      <span className="inline-flex rounded-full bg-[#fff1e8] px-3 py-1 text-sm font-bold text-[#ff5a1f]">
+                        {item.step}
+                      </span>
+                      <h3 className="mt-3 text-2xl font-bold tracking-tight text-[#111111]">
+                        {item.title}
+                      </h3>
+                      <p className="mt-3 max-w-xl text-base leading-7 text-[#4b5563]">
+                        {item.text}
+                      </p>
+                    </div>
+                  </article>
+                ))}
+              </div>
+            </div>
+
+            <div className="relative">
+              <div
+                aria-hidden="true"
+                className="absolute -left-6 top-8 h-20 w-20 rounded-full bg-[#ff7a00]/10 blur-3xl"
+              />
+
+              <div className="relative mx-auto max-w-[760px]">
+                <div className="rounded-[1.75rem] border border-black/5 bg-white/95 p-4 shadow-[0_18px_45px_rgba(17,17,17,0.07)] sm:p-5">
+                  <div className="overflow-hidden rounded-[1.5rem] bg-[#130d09] shadow-[0_22px_50px_rgba(0,0,0,0.12)]">
+                    <div className="relative aspect-[16/10] bg-black">
+                      <iframe
+                        src={youtubeEmbedUrl}
+                        title="zapMenu demo video"
+                        className="absolute inset-0 h-full w-full"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                        referrerPolicy="strict-origin-when-cross-origin"
+                        allowFullScreen
+                      />
+                    </div>
+                  </div>
+                </div>
+
+                <div className="mt-8 flex items-center justify-center gap-3 text-center text-lg text-[#4b5563]">
+                  <span className="grid h-10 w-10 place-items-center rounded-full border-2 border-[#ff5a1f] text-[#ff5a1f]">
+                    <WebIcon name="lucide/play" className="h-4 w-4" />
+                  </span>
+                  <p>Watch how zapMenu helps restaurants go digital in minutes.</p>
+                  <WebIcon name="lucide/arrow-up-right" className="h-7 w-7 text-[#ff5a1f]" />
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </section>
