@@ -175,6 +175,9 @@ const testimonials = [
   },
 ] as const;
 
+void pricingPlans;
+void testimonials;
+
 const faqs = [
   {
     question: "Do customers need an app?",
@@ -327,8 +330,10 @@ export default function Home() {
           </div>
         </div>
       </section>
-
-      <section className="relative overflow-hidden border-b border-black/5 bg-[linear-gradient(125deg,#fffaf5_0%,#fff6ef_34%,#f7fbf5_62%,#eef7ff_100%)] py-20 sm:py-24">
+      <section
+        id="faq"
+        className="relative overflow-hidden border-b border-black/5 bg-[linear-gradient(125deg,#fffaf5_0%,#fff6ef_34%,#f7fbf5_62%,#eef7ff_100%)] py-20 sm:py-24"
+      >
         <div
           aria-hidden="true"
           className="absolute inset-0 opacity-45 [background-image:linear-gradient(rgba(21,21,21,0.035)_1px,transparent_1px),linear-gradient(90deg,rgba(21,21,21,0.035)_1px,transparent_1px)] [background-size:40px_40px] sm:[background-size:48px_48px]"
@@ -474,7 +479,6 @@ export default function Home() {
           </div>
         </div>
       </section>
-
       <section className="relative overflow-hidden border-b border-black/5 bg-[linear-gradient(125deg,#fffaf5_0%,#fff6ef_34%,#f7fbf5_62%,#eef7ff_100%)] py-20 sm:py-24">
         <div
           aria-hidden="true"
@@ -563,6 +567,7 @@ export default function Home() {
         </div>
       </section>
 
+      {/*
       <section className="relative overflow-hidden border-b border-black/5 bg-[#fffaf5] py-20 sm:py-24">
         <div
           aria-hidden="true"
@@ -632,8 +637,9 @@ export default function Home() {
           </div>
         </div>
       </section>
+      */}
 
-      <section className="relative overflow-hidden border-b border-black/5 bg-[linear-gradient(125deg,#fffaf5_0%,#fff6ef_34%,#f7fbf5_62%,#eef7ff_100%)] py-20 sm:py-24">
+      {/*<section className="relative overflow-hidden border-b border-black/5 bg-[linear-gradient(125deg,#fffaf5_0%,#fff6ef_34%,#f7fbf5_62%,#eef7ff_100%)] py-20 sm:py-24">
         <div
           aria-hidden="true"
           className="absolute inset-0 opacity-45 [background-image:linear-gradient(rgba(21,21,21,0.035)_1px,transparent_1px),linear-gradient(90deg,rgba(21,21,21,0.035)_1px,transparent_1px)] [background-size:40px_40px] sm:[background-size:48px_48px]"
@@ -676,18 +682,18 @@ export default function Home() {
             ))}
           </div>
         </div>
-      </section>
+      </section>*/}
 
-      <section className="relative overflow-hidden bg-[#fffaf5] py-20 sm:py-24">
+      <section className="relative overflow-hidden border-b border-black/5 bg-[linear-gradient(125deg,#fffaf5_0%,#fff6ef_34%,#f7fbf5_62%,#eef7ff_100%)] py-20 sm:py-24">
         <div
           aria-hidden="true"
           className="absolute inset-0 opacity-45 [background-image:linear-gradient(rgba(21,21,21,0.035)_1px,transparent_1px),linear-gradient(90deg,rgba(21,21,21,0.035)_1px,transparent_1px)] [background-size:40px_40px] sm:[background-size:48px_48px]"
         />
 
-        <div className="relative mx-auto max-w-[900px] px-4 sm:px-8 lg:px-10">
+        <div className="relative mx-auto max-w-[1280px] px-4 sm:px-8 lg:px-10">
           <div className="mx-auto max-w-4xl text-center">
             <div className="inline-flex items-center gap-2 rounded-full border border-[#ff5a1f]/15 bg-white px-4 py-2 text-sm font-bold uppercase tracking-[0.18em] text-[#ff5a1f] shadow-sm">
-              <WebIcon name="lucide/help-circle" className="h-4 w-4" />
+              <WebIcon name="lucide/settings-2" className="h-4 w-4" />
               FAQ
             </div>
             <h2 className="mx-auto mt-6 max-w-4xl text-4xl font-bold tracking-tight text-[#111111] sm:text-5xl lg:text-6xl">
@@ -698,11 +704,11 @@ export default function Home() {
             </p>
           </div>
 
-          <div className="mt-12 space-y-4">
+          <div className="mx-auto mt-12 max-w-4xl space-y-4">
             {faqs.map((faq, index) => (
               <details
                 key={faq.question}
-                className="group rounded-[1.5rem] border border-black/5 bg-white/95 p-6 shadow-[0_18px_45px_rgba(17,17,17,0.07)]"
+                className="group rounded-[1.5rem] border border-black/5 bg-white/95 p-6 shadow-[0_18px_45px_rgba(17,17,17,0.07)] transition-all duration-300 open:-translate-y-0.5"
                 open={index === 0}
               >
                 <summary className="flex cursor-pointer list-none items-center justify-between gap-4 text-left text-lg font-semibold text-[#111111]">
@@ -718,6 +724,35 @@ export default function Home() {
           </div>
         </div>
       </section>
+      <footer className="border-t border-black/5 bg-white/90">
+        <div className="mx-auto flex max-w-[1280px] flex-col gap-4 px-4 py-8 text-sm text-[#5b5b5b] sm:px-8 lg:flex-row lg:items-center lg:justify-between lg:px-10">
+          <div className="flex items-center gap-3">
+            <div className="relative h-12 w-40 shrink-0 sm:h-14 sm:w-48">
+              <Image
+                src="/zap-menu-logo.png"
+                alt="ZapMenu"
+                fill
+                sizes="(min-width: 640px) 192px, 160px"
+                className="object-contain object-left"
+              />
+            </div>
+          </div>
+
+          <div className="flex flex-wrap items-center gap-x-6 gap-y-2">
+            <a href="#how-it-works" className="transition-colors hover:text-[#ff5a1f]">
+              How It Works
+            </a>
+            <a href="#faq" className="transition-colors hover:text-[#ff5a1f]">
+              FAQ
+            </a>
+            <a href="#" className="transition-colors hover:text-[#ff5a1f]">
+              Privacy
+            </a>
+          </div>
+
+          <p className="text-[#7a7a7a]">© 2026 zapMenu. All rights reserved.</p>
+        </div>
+      </footer>
     </main>
   );
 }
